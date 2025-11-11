@@ -25,3 +25,12 @@ Route::get('/masuk ', function () {
 Route::get('/lupa_password', function () {
     return view('lupa_password');
 });
+
+
+Route::get('/verifikasi', function () {
+    return view('verifikasi');
+});
+
+Route::get('/atur_pw_baru', function () {
+    return view('atur_pw_baru');
+});
