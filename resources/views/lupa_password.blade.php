@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Masuk | BukuBareng</title>
+    <title>Lupa Password | BukuBareng</title>
 
     {{-- Load Tailwind & JS dari Vite --}}
     @vite(['resources/css/app.css', 'resources/js/app.js'])
@@ -64,7 +64,7 @@
 
             {{-- Lupa password --}}
             <div class="text-right text-sm mb-4">
-                <a href="{{ url('/lupa_password') }}" class="text-yellow-300 hover:underline">Lupa Password?</a>
+                <a href="#" class="text-yellow-300 hover:underline">Lupa Password?</a>
             </div>
 
             {{-- Tombol Masuk --}}

@@ -98,8 +98,7 @@
             <p class="mb-6 leading-relaxed text-lg text-justify font-normal">Sejak berdiri, BukuBareng berkomitmen menghadirkan berbagai jenis buku mulai dari novel fiksi, buku ilmiah, komik, hingga buku motivasi, semuanya dapat disewa dengan mudah dan dikirim langsung ke rumah Anda. Dengan slogan **"Baca Bareng, Berkembang Bareng"**, kami ingin menciptakan budaya membaca yang lebih inklusif, terjangkau, dan menyenangkan bagi semua kalangan — dari pelajar, mahasiswa, hingga pecinta buku di seluruh Indonesia.</p>
 
             <p class="leading-relaxed text-lg text-justify font-normal">Kami juga terus berinovasi untuk menghadirkan pengalaman membaca yang lebih interaktif melalui sistem peminjaman digital dan komunitas pembaca aktif di platform kami. BukuBareng bukan sekadar tempat menyewa buku, kami adalah teman perjalanan belajar dan imajinasi Anda.</p>
-        </div>
-    </div>
+        </div>    </div>
     
     {{-- Footer Ungu Gelap --}}
     <div class="h-20" style="background-color: #4b0082;"></div>
