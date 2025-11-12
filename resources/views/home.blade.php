@@ -7,7 +7,8 @@
     
     {{-- === HERO SECTION / CAROUSEL === --}}
     <div class="flex justify-center pt-10">
-        <div class="w-[90%] md:w-[70%] rounded-2xl overflow-hidden shadow-lg relative" 
+        <div class="w-[90%] md:w-[70%] rounded-2xl overflow-
+        hidden shadow-lg relative" 
             data-hs-carousel='{
                 "loadingClasses": "opacity-0",
                 "isAutoPlay": true,

@@ -34,3 +34,8 @@ Route::get('/verifikasi', function () {
 Route::get('/atur_pw_baru', function () {
     return view('auth.atur_pw_baru');
 });
+
+// admin side
+Route::get('/as', function () {
+    return view('admin.dashboard');
+});
