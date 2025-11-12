@@ -6,15 +6,9 @@
     <title>@yield('title', 'Sistem Peminjaman Buku')</title>
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
-<body class="bg-gray-100">
-
-    @include('partials.navbar')
-
-    <main class="pt-[88px]">
-        @yield('content')
-    </main>
-
-    @include('partials.footer')
-
+<body class="min-h-screen flex flex-col items-center justify-center bg-gradient-to-b from-purple-800 to-purple-950">
+  <main>
+    @yield('content')
+  </main>
 </body>
 </html>

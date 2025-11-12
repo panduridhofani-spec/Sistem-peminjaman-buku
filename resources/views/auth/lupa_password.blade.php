@@ -1,23 +1,14 @@
-<!DOCTYPE html>
-<html lang="id">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lupa Password | BukuBareng</title>
+@extends('layouts.login')
 
-    {{-- Load Tailwind & JS dari Vite --}}
-    @vite(['resources/css/app.css', 'resources/js/app.js'])
-</head>
-<body class="min-h-screen flex flex-col items-center justify-center bg-gradient-to-b from-purple-800 to-purple-950">
+@section('title', 'Lupa Password | BukuBareng')
 
-    {{-- LOGO --}}
+@section('content')
     <a href="{{ url('/') }}" class="flex flex-col items-center mb-6">
         <img src="{{ asset('img/logo.png') }}" alt="Logo BukuBareng" 
              class="w-24 h-24 rounded-full bg-white p-1 shadow-md">
         <h1 class="text-white text-xl font-semibold mt-2">BukuBareng</h1>
     </a>
 
-    {{-- CARD FORM LUPA PASSWORD --}}
     <div class="bg-white/10 backdrop-blur-md text-white rounded-2xl shadow-2xl p-8 w-full max-w-md border border-white/20">
         {{-- Tombol Kembali --}}
         <div class="flex items-center mb-4">
@@ -32,11 +23,9 @@
             <h2 class="text-center text-2xl font-semibold flex-1 -ml-4">Lupa Password?</h2>
         </div>
 
-        {{-- Form --}}
         <form method="POST" action="{{ url('/lupa-password') }}">
             @csrf
 
-            {{-- Email --}}
             <div class="mb-4">
                 <label for="email" class="block text-sm mb-1 text-gray-200">Email</label>
                 <input type="email" id="email" name="email" required
@@ -45,12 +34,10 @@
                     placeholder="Masukkan email kamu">
             </div>
 
-            {{-- Info --}}
             <p class="text-gray-300 text-sm mb-6 leading-relaxed">
                 Kami akan mengirimkan kode verifikasi ke email anda untuk reset password.
             </p>
 
-            {{-- Tombol Kirim --}}
             <button type="submit"
                 class="w-full bg-yellow-400 text-purple-900 font-semibold py-2 rounded-md 
                        hover:bg-yellow-300 transition transform hover:scale-[1.02]">
@@ -58,6 +45,4 @@
             </button>
         </form>
     </div>
-
-</body>
-</html>
+@endsection

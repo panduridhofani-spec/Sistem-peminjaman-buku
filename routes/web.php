@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
-    return view('dashboard');
+    return view('Home');
 });
 
 
@@ -13,24 +13,24 @@ Route::get('/tentang_kami', function () {
 
 
 Route::get('/daftar', function () {
-    return view('daftar');
+    return view('auth.daftar');
 });
 
 
 Route::get('/masuk ', function () {
-    return view('masuk');
+    return view('auth.masuk');
 });
 
 
 Route::get('/lupa_password', function () {
-    return view('lupa_password');
+    return view('auth.lupa_password');
 });
 
 
 Route::get('/verifikasi', function () {
-    return view('verifikasi');
+    return view('auth.verifikasi');
 });
 
 Route::get('/atur_pw_baru', function () {
-    return view('atur_pw_baru');
+    return view('auth.atur_pw_baru');
 });
