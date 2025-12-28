@@ -8,7 +8,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 class User extends Authenticatable
 {
     use HasFactory;
-
+ 
     protected $primaryKey = 'id_user';
 
     protected $fillable = [

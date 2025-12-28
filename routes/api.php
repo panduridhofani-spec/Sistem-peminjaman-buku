@@ -1,14 +1,33 @@
 <?php
 
-use App\Http\Controllers\BukuController;
-use App\Http\Controllers\UserController;
-use App\Http\Controllers\AdminController;
-use App\Http\Controllers\BookingController;
-use App\Http\Controllers\KtpController;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Api\BukuController;
+use App\Http\Controllers\Api\UserController;
+use App\Http\Controllers\Api\BookingController;
 
+Route::get('/user', function (Request $request) {
+    return $request->user();
+})->middleware('auth:sanctum');
 
-Route::get('/buku', [BukuController::class, 'index']);
-Route::post('/buku', [BukuController::class, 'store']);
-Route::get('/buku/{id}', [BukuController::class, 'show']);
-Route::put('/buku/{id}', [BukuController::class, 'update']);
-Route::delete('/buku/{id}', [BukuController::class, 'destroy']);
+Route::prefix('buku')->group(function () {
+    Route::get('/', [BukuController::class, 'index']);
+    Route::get('{id}', [BukuController::class, 'show']);
+    Route::post('/', [BukuController::class, 'store']);
+    Route::put('{id}', [BukuController::class, 'update']);
+    Route::delete('{id}', [BukuController::class, 'destroy']);
+});
+
+// route::apiResource('buku', BukuController::class);
+
+Route::prefix('user')->group(function () {
+    Route::get('/', [UserController::class, 'index']);
+    Route::post('/', [UserController::class, 'store']);
+    Route::get('{id}', [UserController::class, 'show']);
+    Route::put('{id}', [UserController::class, 'update']);
+    Route::delete('{id}', [UserController::class, 'destroy']);
+
+    Route::post('login', [UserController::class, 'login']);
+});
+
+Route::apiResource('booking', BookingController::class);

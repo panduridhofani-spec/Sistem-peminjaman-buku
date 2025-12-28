@@ -19,9 +19,15 @@
     <h2 class="text-2xl font-bold text-center text-white mb-6">
         Buat Akun BukuBareng
     </h2>
+    
+    <!-- Area untuk Pemberitahuan Error Password -->
+    <div id="password-error-message" class="hidden p-3 mb-4 rounded-lg bg-red-600/70 text-white font-semibold text-sm">
+        <i class="fa-solid fa-triangle-exclamation mr-2"></i> Konfirmasi kata sandi tidak cocok!
+    </div>
 
     {{-- Form --}}
-    <form method="POST" action="/register">
+    <!-- Tambahkan ID untuk JavaScript -->
+    <form id="registration-form" method="POST" action="/register">
         @csrf
 
         {{-- Nama --}}
@@ -84,6 +90,19 @@
     </p>
 </div>
 
+<!-- Tambahkan CDN FontAwesome dan CSS untuk memastikan ikon muncul -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+<style>
+    /* Memastikan input memiliki ruang padding yang cukup di kanan untuk ikon */
+    #password, #password_confirmation {
+        padding-right: 2.5rem; /* Menjaga konsistensi dengan pr-10 Tailwind */
+    }
+    /* Memastikan ikon berada di lapisan atas (z-index) */
+    .relative .fa-eye, .relative .fa-eye-slash {
+        z-index: 10; 
+    }
+</style>
+
 <script>
     // Fungsi show/hide password
     function togglePassword(id) {
@@ -104,6 +123,30 @@
     // Batasi input nomor telepon agar hanya angka
     document.getElementById("phone").addEventListener("input", function() {
         this.value = this.value.replace(/[^0-9]/g, "");
+    });
+    
+    // --- LOGIKA VALIDASI PASSWORD ---
+    document.getElementById('registration-form').addEventListener('submit', function(e) {
+        const password = document.getElementById('password').value;
+        const passwordConfirmation = document.getElementById('password_confirmation').value;
+        const errorMessage = document.getElementById('password-error-message');
+
+        if (password !== passwordConfirmation) {
+            // 1. Tampilkan pesan error
+            errorMessage.classList.remove('hidden');
+            
+            // 2. Batalkan pengiriman formulir
+            e.preventDefault();
+            
+            // 3. Gulir ke atas pesan error
+            errorMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            
+            // 4. Fokuskan kembali input password
+            document.getElementById('password').focus();
+        } else {
+            // Sembunyikan error jika validasi berhasil
+            errorMessage.classList.add('hidden');
+        }
     });
 </script>
 @endsection
